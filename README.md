@@ -1,4 +1,4 @@
-📄 ✅ README.md
+
 # 🤖 RAG-Based Customer Support Assistant (LangGraph + HITL)
 
 ## 📌 Overview
