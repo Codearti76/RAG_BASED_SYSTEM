@@ -23,8 +23,8 @@ Thumbs.db
 # Logs
 *.log
 
-# Chroma DB (optional - if large)
+# Chroma DB 
 chroma_db/
 
-# HuggingFace cache (VERY IMPORTANT)
+# HuggingFace cache
 .cache/
