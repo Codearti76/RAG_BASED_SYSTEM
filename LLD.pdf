@@ -1,0 +1,44 @@
+LLD (Low-Level Design) 
+Title: RAG-Based Customer Support Assistant (LLD)
+1. Modules
+loader.py → loads PDF
+chunker.py → splits text
+embeddings.py → creates vectors
+retriever.py → fetches relevant data
+rag_pipeline.py → runs RAG
+graph_workflow.py → LangGraph logic
+hitl.py → human escalation
+2. Data Structures
+{
+  "query": "string",
+  "answer": "string",
+  "confidence": 0.0
+}
+3. Workflow
+
+Input → Processing Node → Decision Node → Output
+↘ HITL
+
+4. Routing Logic
+Confidence > 0.5 → return answer
+Confidence < 0.5 → escalate to HITL
+5. HITL Design
+Trigger: low confidence / sensitive query
+Action: human input taken
+Output: final response
+6. API Design
+
+Input:
+
+{ "query": "What is refund policy?" }
+
+Output:
+
+{
+  "answer": "...",
+  "confidence": 0.9
+}
+7. Error Handling
+No data found → fallback response
+LLM failure → retry or message
+Invalid query → ask again

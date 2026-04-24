@@ -1,0 +1,37 @@
+HLD (High-Level Design) 
+Title: RAG-Based Customer Support Assistant (HLD)
+1. System Overview
+
+This system is a Retrieval-Augmented Generation (RAG) based customer support assistant.
+It retrieves information from a PDF knowledge base and generates context-aware answers.
+It also supports Human-in-the-Loop (HITL) for complex queries.
+
+2. Architecture
+
+User → Interface → LangGraph Workflow → Retriever → Vector Database → LLM → Response
+↘ HITL (if needed)
+
+3. Components
+Document Loader (PDF input)
+Chunking Module
+Embedding Model (HuggingFace)
+Vector Database (ChromaDB)
+Retriever
+LLM (Groq)
+LangGraph Workflow
+HITL Module
+4. Data Flow
+
+PDF → Chunk → Embed → Store in DB
+User Query → Retrieve relevant chunks → Generate answer → Confidence check → Output / HITL
+
+5. Technology Choices
+LangChain → pipeline
+LangGraph → workflow control
+ChromaDB → vector storage
+HuggingFace → embeddings
+Groq → fast LLM
+6. Scalability
+Chunking handles large PDFs
+Retrieval optimized with vector search
+Can scale to multiple documents
